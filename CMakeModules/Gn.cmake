@@ -17,6 +17,12 @@ else (BUILD_TESTS)
   set(_GEN_ARGS ${_GEN_ARGS} rtc_include_tests=false)
 endif (BUILD_TESTS)
 
+# Force use_custom_libcxx=false to use system libstdc++ with CXX11_ABI=1
+set(_GEN_ARGS ${_GEN_ARGS} use_custom_libcxx=false)
+
+# Force use_rtti=true to enable RTTI
+set(_GEN_ARGS ${_GEN_ARGS} use_rtti=true)
+
 if (GN_EXTRA_ARGS)
   set(_GEN_ARGS ${_GEN_ARGS} ${GN_EXTRA_ARGS})
 endif (GN_EXTRA_ARGS)
